@@ -18,7 +18,7 @@ class AppBarBuilder extends StatelessWidget {
         children: [
           Text(
             title,
-            style: TextStyle(fontSize: 24),
+            style: const TextStyle(fontSize: 24),
           ),
           const Spacer(),
           CustomSearchIcon(icon: icon),

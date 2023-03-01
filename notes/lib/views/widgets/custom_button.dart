@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../constants/const.dart';
@@ -17,7 +16,7 @@ class CustomButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(12), color: kPrimaryColor),
         child: TextButton(
           onPressed: validator,
-          child: Text(
+          child: const Text(
             'Add',
             style: TextStyle(
               fontSize: 22,
