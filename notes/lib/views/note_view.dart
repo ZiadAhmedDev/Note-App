@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:notes/views/widgets/app_bar.dart';
 import 'package:notes/views/widgets/bottom_sheet_builder.dart';
-import 'package:notes/views/widgets/note_items_builder.dart';
 import 'package:notes/views/widgets/note_items_list.dart';
 
 class NoteView extends StatelessWidget {
   const NoteView({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
           onPressed: () {
             showModalBottomSheet(
+                isScrollControlled: true,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(24)),
                 context: context,

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes/cubit/add_note/add_note_cubit.dart';
@@ -22,29 +21,29 @@ class _FormInputBuilderState extends State<FormInputBuilder> {
   Widget build(BuildContext context) {
     return Form(
       key: formKey,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 30,
-            ),
-            CustomInputTextBuilder(
-              color: kPrimaryColor,
-              hint: 'Title',
-              onSave: (value) => title = value,
-              autoValidate: autoValidate,
-            ),
-            const SizedBox(height: 30),
-            CustomInputTextBuilder(
-              color: kPrimaryColor,
-              hint: 'Content',
-              maxLine: 5,
-              onSave: (value) => subTitle = value,
-              autoValidate: autoValidate,
-            ),
-            SizedBox(height: MediaQuery.of(context).size.height * .05),
-            CustomButton(
+      child: Column(
+        children: [
+          const SizedBox(
+            height: 20,
+          ),
+          CustomInputTextBuilder(
+            color: kPrimaryColor,
+            hint: 'Title',
+            onSave: (value) => title = value,
+            autoValidate: autoValidate,
+          ),
+          const SizedBox(height: 10),
+          CustomInputTextBuilder(
+            color: kPrimaryColor,
+            hint: 'Content',
+            maxLine: 5,
+            onSave: (value) => subTitle = value,
+            autoValidate: autoValidate,
+          ),
+          const SizedBox(height: 15),
+          BlocBuilder<AddNoteCubit, AddNoteState>(
+            builder: (context, state) => CustomButton(
+              isLoading: state is AddNoteLoading ? true : false,
               validator: () {
                 if (formKey.currentState!.validate()) {
                   formKey.currentState!.save();
@@ -53,7 +52,7 @@ class _FormInputBuilderState extends State<FormInputBuilder> {
                       subTitle: subTitle!,
                       date: DateTime.now().toString(),
                       color: Colors.orange.value);
-                  BlocProvider.of<AddNoteCubit>(context).addNote(note);
+                  AddNoteCubit.get(context).addNote(note);
                 } else {
                   setState(() {
                     autoValidate = AutovalidateMode.always;
@@ -61,9 +60,9 @@ class _FormInputBuilderState extends State<FormInputBuilder> {
                 }
               },
             ),
-            const SizedBox(height: 10)
-          ],
-        ),
+          ),
+          const SizedBox(height: 15)
+        ],
       ),
     );
   }

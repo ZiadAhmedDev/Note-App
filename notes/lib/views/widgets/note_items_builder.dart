@@ -10,7 +10,7 @@ class NotesBuilder extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Container(
         decoration: BoxDecoration(
-          color: Color.fromARGB(255, 201, 176, 92),
+          color: const Color.fromARGB(255, 201, 176, 92),
           borderRadius: BorderRadius.circular(16),
         ),
         child: Padding(

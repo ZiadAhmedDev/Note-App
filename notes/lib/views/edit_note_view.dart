@@ -14,7 +14,7 @@ class EditNotePage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
-          children: [
+          children: const [
             AppBarBuilder(icon: Icons.check, title: 'Edit Confirm'),
             CustomEditNoteItem(),
             CustomInputTextBuilder(color: kPrimaryColor, hint: 'title'),

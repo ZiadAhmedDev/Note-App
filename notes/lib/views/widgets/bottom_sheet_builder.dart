@@ -11,28 +11,33 @@ class BottomSheetBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AddNoteCubit, AddNoteState>(
-      listener: (context, state) {
-        if (state is AddNoteFailure) {
-          print('fail');
-        }
-        if (state is AddNoteSuccess) {
-          Get.back();
-          showSnackBar('Adding Note', 'Your note is now saved',
-              const Duration(seconds: 3));
-        }
-      },
-      builder: (context, state) {
-        return ModalProgressHUD(
-          inAsyncCall: state is AddNoteLoading ? true : false,
-          child: SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
-            child: SizedBox(
-                height: MediaQuery.of(context).size.height * .63,
-                child: const FormInputBuilder()),
-          ),
-        );
-      },
+    return BlocProvider(
+      create: (context) => AddNoteCubit(),
+      child: BlocConsumer<AddNoteCubit, AddNoteState>(
+        listener: (context, state) {
+          if (state is AddNoteFailure) {
+            print('fail');
+          }
+          if (state is AddNoteSuccess) {
+            Get.back();
+            showSnackBar('Adding Note', 'Your note is now saved',
+                const Duration(seconds: 3));
+          }
+        },
+        builder: (context, state) {
+          return AbsorbPointer(
+            absorbing: state is AddNoteLoading ? true : false,
+            child: SingleChildScrollView(
+              physics: BouncingScrollPhysics(),
+              child: Padding(
+                padding: EdgeInsets.only(
+                    bottom: MediaQuery.of(context).viewInsets.bottom),
+                child: FormInputBuilder(),
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }

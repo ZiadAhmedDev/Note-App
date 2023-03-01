@@ -30,7 +30,8 @@ class _CustomInputTextBuilderState extends State<CustomInputTextBuilder> {
       onTap: () {
         setState(() {
           _scrollControl.animateTo(200,
-              duration: Duration(milliseconds: 200), curve: Curves.easeIn);
+              duration: const Duration(milliseconds: 200),
+              curve: Curves.easeIn);
         });
       },
       child: SingleChildScrollView(
