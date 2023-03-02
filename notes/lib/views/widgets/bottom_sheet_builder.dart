@@ -34,7 +34,7 @@ class BottomSheetBuilder extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.only(
                     bottom: MediaQuery.of(context).viewInsets.bottom),
-                child: const FormInputBuilder(),
+                child: FormInputBuilder(),
               ),
             ),
           );

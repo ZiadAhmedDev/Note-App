@@ -6,11 +6,14 @@ import 'package:notes/cubit/add_note/add_note_cubit.dart';
 import 'package:notes/model/note_model.dart';
 import '../../constants/const.dart';
 import '../../cubit/note_view/cubit/note_view_cubit.dart';
+import 'color_list_view.dart';
 import 'custom_button.dart';
 import 'input_Text_Builder.dart';
 
 class FormInputBuilder extends StatefulWidget {
-  const FormInputBuilder({super.key});
+  FormInputBuilder({
+    super.key,
+  });
   @override
   State<FormInputBuilder> createState() => _FormInputBuilderState();
 }
@@ -45,6 +48,10 @@ class _FormInputBuilderState extends State<FormInputBuilder> {
               subTitle = value;
             },
             autoValidate: autoValidate,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ColorList(),
           ),
           const SizedBox(height: 15),
           BlocBuilder<AddNoteCubit, AddNoteState>(

@@ -8,8 +8,9 @@ class CustomInputTextBuilder extends StatefulWidget {
       this.maxLine = 1,
       this.onChange,
       super.key,
-      this.autoValidate});
+      this.autoValidate, this.colorHint});
   final Color color;
+  final Color? colorHint;
   final String? hint;
   final int maxLine;
   final void Function(String?)? onChange;
@@ -54,7 +55,7 @@ class _CustomInputTextBuilderState extends State<CustomInputTextBuilder> {
                   color: widget.color, fontSize: 16, letterSpacing: 1.3),
               decoration: InputDecoration(
                   hintText: widget.hint,
-                  hintStyle: TextStyle(color: widget.color),
+                  hintStyle: TextStyle(color: widget.colorHint ?? widget.color),
                   enabledBorder: OutlineInputBorder(
                       borderSide: const BorderSide(color: Colors.white),
                       borderRadius: BorderRadius.circular(12)),
