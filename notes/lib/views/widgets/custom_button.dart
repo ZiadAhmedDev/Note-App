@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import '../../constants/const.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key, this.validator, required this.isLoading});
-  final void Function()? validator;
+  const CustomButton({super.key, this.onTap, required this.isLoading});
+  final void Function()? onTap;
   final bool isLoading;
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class CustomButton extends StatelessWidget {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(12), color: kPrimaryColor),
         child: TextButton(
-          onPressed: validator,
+          onPressed: onTap,
           child: isLoading
               ? const SizedBox(
                   height: 24,

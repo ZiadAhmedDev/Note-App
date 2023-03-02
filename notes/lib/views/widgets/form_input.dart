@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:notes/cubit/add_note/add_note_cubit.dart';
 import 'package:notes/model/note_model.dart';
 import '../../constants/const.dart';
+import '../../cubit/note_view/cubit/note_view_cubit.dart';
 import 'custom_button.dart';
 import 'input_Text_Builder.dart';
 
@@ -12,9 +15,8 @@ class FormInputBuilder extends StatefulWidget {
   State<FormInputBuilder> createState() => _FormInputBuilderState();
 }
 
-String? title, subTitle;
-
 class _FormInputBuilderState extends State<FormInputBuilder> {
+  String? title, subTitle;
   GlobalKey<FormState> formKey = GlobalKey();
   AutovalidateMode autoValidate = AutovalidateMode.disabled;
   @override
@@ -29,7 +31,9 @@ class _FormInputBuilderState extends State<FormInputBuilder> {
           CustomInputTextBuilder(
             color: kPrimaryColor,
             hint: 'Title',
-            onSave: (value) => title = value,
+            onChange: (value) {
+              title = value;
+            },
             autoValidate: autoValidate,
           ),
           const SizedBox(height: 10),
@@ -37,22 +41,27 @@ class _FormInputBuilderState extends State<FormInputBuilder> {
             color: kPrimaryColor,
             hint: 'Content',
             maxLine: 5,
-            onSave: (value) => subTitle = value,
+            onChange: (value) {
+              subTitle = value;
+            },
             autoValidate: autoValidate,
           ),
           const SizedBox(height: 15),
           BlocBuilder<AddNoteCubit, AddNoteState>(
             builder: (context, state) => CustomButton(
               isLoading: state is AddNoteLoading ? true : false,
-              validator: () {
+              onTap: () {
                 if (formKey.currentState!.validate()) {
                   formKey.currentState!.save();
+                  var currentDate = DateTime.now();
+                  var format = DateFormat.yMd().format(currentDate);
                   NoteModel note = NoteModel(
                       title: title!,
                       subTitle: subTitle!,
-                      date: DateTime.now().toString(),
+                      date: format.toString(),
                       color: Colors.orange.value);
                   AddNoteCubit.get(context).addNote(note);
+                  NoteViewCubit.get(context).fetchNoteView();
                 } else {
                   setState(() {
                     autoValidate = AutovalidateMode.always;

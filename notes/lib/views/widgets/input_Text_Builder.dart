@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 
 class CustomInputTextBuilder extends StatefulWidget {
-  const CustomInputTextBuilder({
-    required this.color,
-    this.hint,
-    this.maxLine = 1,
-    this.onSave,
-    super.key,
-    this.autoValidate,
-  });
+  const CustomInputTextBuilder(
+      {required this.color,
+      this.hint,
+      this.maxLine = 1,
+      this.onChange,
+      super.key,
+      this.autoValidate});
   final Color color;
   final String? hint;
   final int maxLine;
-  final void Function(String?)? onSave;
+  final void Function(String?)? onChange;
   final AutovalidateMode? autoValidate;
 
   @override
@@ -35,13 +34,12 @@ class _CustomInputTextBuilderState extends State<CustomInputTextBuilder> {
         });
       },
       child: SingleChildScrollView(
-        // physics: AlwaysScrollableScrollPhysics(),
         child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
             child: TextFormField(
               scrollController: _scrollControl,
               controller: control,
-              onSaved: widget.onSave,
+              onChanged: widget.onChange,
               validator: (String? value) {
                 if (value?.isEmpty ?? true) {
                   return 'This Field is required';

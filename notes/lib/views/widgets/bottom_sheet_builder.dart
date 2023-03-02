@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:notes/cubit/add_note/add_note_cubit.dart';
 import '../../constants/components.dart';
+import '../../cubit/note_view/cubit/note_view_cubit.dart';
 import 'form_input.dart';
 
 class BottomSheetBuilder extends StatelessWidget {
@@ -20,6 +21,7 @@ class BottomSheetBuilder extends StatelessWidget {
           }
           if (state is AddNoteSuccess) {
             Get.back();
+            NoteViewCubit.get(context).fetchNoteView();
             showSnackBar('Adding Note', 'Your note is now saved',
                 const Duration(seconds: 3));
           }
@@ -28,11 +30,11 @@ class BottomSheetBuilder extends StatelessWidget {
           return AbsorbPointer(
             absorbing: state is AddNoteLoading ? true : false,
             child: SingleChildScrollView(
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               child: Padding(
                 padding: EdgeInsets.only(
                     bottom: MediaQuery.of(context).viewInsets.bottom),
-                child: FormInputBuilder(),
+                child: const FormInputBuilder(),
               ),
             ),
           );
