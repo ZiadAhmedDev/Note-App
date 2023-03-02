@@ -6,9 +6,11 @@ class AppBarBuilder extends StatelessWidget {
     super.key,
     required this.title,
     required this.icon,
+    this.onPressed,
   });
   final String title;
   final IconData icon;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,7 @@ class AppBarBuilder extends StatelessWidget {
             style: const TextStyle(fontSize: 24),
           ),
           const Spacer(),
-          CustomSearchIcon(icon: icon),
+          CustomSearchIcon(onPressed: onPressed, icon: icon),
         ],
       ),
     );

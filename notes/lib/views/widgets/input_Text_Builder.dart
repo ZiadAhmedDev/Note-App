@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes/model/note_model.dart';
 
 class CustomInputTextBuilder extends StatefulWidget {
   const CustomInputTextBuilder(
@@ -20,7 +21,6 @@ class CustomInputTextBuilder extends StatefulWidget {
 
 class _CustomInputTextBuilderState extends State<CustomInputTextBuilder> {
   final TextEditingController? control = TextEditingController();
-
   final ScrollController _scrollControl = ScrollController();
 
   @override

@@ -19,17 +19,8 @@ class NoteItemList extends StatelessWidget {
           padding: EdgeInsets.zero,
           itemCount: notes.length,
           itemBuilder: (BuildContext context, int index) {
-            return GestureDetector(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const EditNotePage(),
-                    ));
-              },
-              child: NotesBuilder(
-                note: notes[index],
-              ),
+            return NotesBuilder(
+              note: notes[index],
             );
           },
         );
