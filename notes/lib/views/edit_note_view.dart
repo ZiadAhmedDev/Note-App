@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:notes/constants/const.dart';
-import 'package:notes/model/note_model.dart';
-import 'package:notes/views/widgets/app_bar.dart';
-import 'package:notes/views/widgets/color_list_edit.dart';
-import 'package:notes/views/widgets/input_Text_Builder.dart';
+import 'package:TheNote/constants/const.dart';
+import 'package:TheNote/model/note_model.dart';
+import 'package:TheNote/views/widgets/app_bar.dart';
+import 'package:TheNote/views/widgets/color_list_edit.dart';
+import 'package:TheNote/views/widgets/input_Text_Builder.dart';
 import '../cubit/note_view/cubit/note_view_cubit.dart';
 
 class EditNotePage extends StatelessWidget {

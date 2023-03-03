@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:notes/cubit/add_note/add_note_cubit.dart';
-import 'package:notes/model/note_model.dart';
+import 'package:TheNote/cubit/add_note/add_note_cubit.dart';
+import 'package:TheNote/model/note_model.dart';
 import '../../constants/const.dart';
 import '../../cubit/note_view/cubit/note_view_cubit.dart';
 import 'color_list_view.dart';
@@ -54,7 +54,7 @@ class _FormInputBuilderState extends State<FormInputBuilder> {
             child: ColorList(),
           ),
           const SizedBox(height: 15),
-          BlocBuilder<AddNoteCubit, AddNoteState>(
+          BlocBuilder<AddNoteCubit, AddTheNotetate>(
             builder: (context, state) => CustomButton(
               isLoading: state is AddNoteLoading ? true : false,
               onTap: () {

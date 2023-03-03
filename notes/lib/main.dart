@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:notes/constants/bloc_observer.dart';
-import 'package:notes/cubit/note_view/cubit/note_view_cubit.dart';
-import 'package:notes/model/note_model.dart';
-import 'package:notes/views/note_view.dart';
+import 'package:TheNote/constants/bloc_observer.dart';
+import 'package:TheNote/cubit/note_view/cubit/note_view_cubit.dart';
+import 'package:TheNote/model/note_model.dart';
+import 'package:TheNote/views/note_view.dart';
 
 import 'constants/const.dart';
 

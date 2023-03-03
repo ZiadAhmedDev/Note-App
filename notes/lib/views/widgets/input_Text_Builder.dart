@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notes/model/note_model.dart';
+import 'package:TheNote/model/note_model.dart';
 
 class CustomInputTextBuilder extends StatefulWidget {
   const CustomInputTextBuilder(
@@ -8,7 +8,8 @@ class CustomInputTextBuilder extends StatefulWidget {
       this.maxLine = 1,
       this.onChange,
       super.key,
-      this.autoValidate, this.colorHint});
+      this.autoValidate,
+      this.colorHint});
   final Color color;
   final Color? colorHint;
   final String? hint;

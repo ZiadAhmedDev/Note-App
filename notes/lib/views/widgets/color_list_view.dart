@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:notes/cubit/add_note/add_note_cubit.dart';
-import 'package:notes/cubit/note_view/cubit/note_view_cubit.dart';
-import 'package:notes/model/note_model.dart';
+import 'package:TheNote/cubit/add_note/add_note_cubit.dart';
+import 'package:TheNote/cubit/note_view/cubit/note_view_cubit.dart';
+import 'package:TheNote/model/note_model.dart';
 import '../../constants/const.dart';
 
 class ColorList extends StatefulWidget {

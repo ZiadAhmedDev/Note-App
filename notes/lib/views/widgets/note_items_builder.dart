@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:notes/cubit/note_view/cubit/note_view_cubit.dart';
-import 'package:notes/model/note_model.dart';
-import 'package:notes/views/note_view.dart';
+import 'package:TheNote/cubit/note_view/cubit/note_view_cubit.dart';
+import 'package:TheNote/model/note_model.dart';
+import 'package:TheNote/views/note_view.dart';
 
 import '../edit_note_view.dart';
 
-class NotesBuilder extends StatelessWidget {
-  const NotesBuilder({super.key, required this.note});
+class TheNoteBuilder extends StatelessWidget {
+  const TheNoteBuilder({super.key, required this.note});
   final NoteModel note;
   @override
   Widget build(BuildContext context) {

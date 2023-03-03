@@ -1,4 +1,4 @@
-# notes
+# TheNote
 
 A new Flutter project.
 

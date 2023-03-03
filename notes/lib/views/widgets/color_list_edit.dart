@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:notes/cubit/note_view/cubit/note_view_cubit.dart';
-import 'package:notes/model/note_model.dart';
+import 'package:TheNote/cubit/note_view/cubit/note_view_cubit.dart';
+import 'package:TheNote/model/note_model.dart';
 
 import '../../constants/const.dart';
 import 'color_list_view.dart';

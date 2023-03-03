@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:notes/cubit/add_note/add_note_cubit.dart';
+import 'package:TheNote/cubit/add_note/add_note_cubit.dart';
 import '../../constants/components.dart';
 import '../../cubit/note_view/cubit/note_view_cubit.dart';
 import 'form_input.dart';
@@ -14,12 +14,12 @@ class BottomSheetBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => AddNoteCubit(),
-      child: BlocConsumer<AddNoteCubit, AddNoteState>(
+      child: BlocConsumer<AddNoteCubit, AddTheNotetate>(
         listener: (context, state) {
           if (state is AddNoteFailure) {
             print('fail');
           }
-          if (state is AddNoteSuccess) {
+          if (state is AddTheNoteuccess) {
             Get.back();
             NoteViewCubit.get(context).fetchNoteView();
             showSnackBar('Adding Note', 'Your note is now saved',

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notes/model/note_model.dart';
+import 'package:TheNote/model/note_model.dart';
 import '../../cubit/add_note/add_note_cubit.dart';
 import '../../cubit/note_view/cubit/note_view_cubit.dart';
 import '../edit_note_view.dart';
@@ -13,14 +13,14 @@ class NoteItemList extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<NoteViewCubit, NoteViewState>(
       builder: (context, state) {
-        List<NoteModel> notes = NoteViewCubit.get(context).noteList ?? [];
+        List<NoteModel> TheNote = NoteViewCubit.get(context).noteList ?? [];
         return ListView.builder(
           physics: const BouncingScrollPhysics(),
           padding: EdgeInsets.zero,
-          itemCount: notes.length,
+          itemCount: TheNote.length,
           itemBuilder: (BuildContext context, int index) {
-            return NotesBuilder(
-              note: notes[index],
+            return TheNoteBuilder(
+              note: TheNote[index],
             );
           },
         );

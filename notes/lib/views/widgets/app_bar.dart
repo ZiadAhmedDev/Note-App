@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notes/views/widgets/search.dart';
+import 'package:TheNote/views/widgets/search.dart';
 
 class AppBarBuilder extends StatelessWidget {
   const AppBarBuilder({
